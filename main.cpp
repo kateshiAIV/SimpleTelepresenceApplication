@@ -7,6 +7,8 @@
 
 #include <Kinect.h>
 
+#include <iostream>
+
 float screenWidth = 960;
 float screenHeight = 640;
 
@@ -42,6 +44,32 @@ static void init()
 
 int main(int argc, char** argv) 
 {
+
+	IKinectSensor* sensor = nullptr;
+
+	HRESULT hr = GetDefaultKinectSensor(&sensor);
+	if (FAILED(hr) || !sensor)
+	{
+		std::cout << "No sensor object\n";
+		return -1;
+	}
+
+	BOOLEAN isConnected = FALSE;
+	sensor->get_IsAvailable(&isConnected);
+
+	if (!isConnected)
+	{
+		std::cout << "No Kinect device connected\n";
+	}
+	else
+	{
+		std::cout << "Kinect device IS connected\n";
+	}
+
+	sensor->Release();
+	return 0;
+
+
 	glutInit(&argc, argv);
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
