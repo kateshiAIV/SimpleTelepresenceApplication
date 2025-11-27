@@ -6,16 +6,3 @@
 *.suo
 *.VC.db
 *.VC.opendb
-
-
-
-# =====================
-# Build folders
-# =====================
-bin/
-obj/
-out/
-x64/
-x86/
-Debug/
-Release/

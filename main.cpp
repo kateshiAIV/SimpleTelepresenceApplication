@@ -1,4 +1,11 @@
-#include <GL/glut.h>
+#include <Windows.h>
+#include <Ole2.h>
+
+#include <gl/GL.h>
+#include <gl/GLU.h>
+#include <gl/glut.h>
+
+#include <Kinect.h>
 
 float screenWidth = 960;
 float screenHeight = 640;
